@@ -128,12 +128,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ============================================
-     PRODUCT FILTER + SEARCH
-     ============================================ */
+   PRODUCT FILTER + SEARCH
+   ============================================ */
 
-  const grid = document.getElementById("product-grid");
+const grid = document.getElementById("product-grid");
 
-  if (grid) {
+if (grid) {
 
     const cards = document.querySelectorAll(".product-card");
 
@@ -145,53 +145,56 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function filterProducts() {
 
-      const searchText = search.value.toLowerCase();
+        const searchText = search.value.toLowerCase();
 
-      cards.forEach(card => {
+        cards.forEach(card => {
 
-        const category = card.getAttribute("data-cat");
+            const category =
+                card.getAttribute("data-cat");
 
-        const text = card.innerText.toLowerCase();
+            const text =
+                card.innerText.toLowerCase();
 
-        const matchesFilter =
-          activeFilter === "all" ||
-          category === activeFilter;
+            const matchesFilter =
+                activeFilter === "all" ||
+                category === activeFilter;
 
-        const matchesSearch =
-          text.includes(searchText);
+            const matchesSearch =
+                text.includes(searchText);
 
-        if (matchesFilter && matchesSearch) {
+            if (matchesFilter && matchesSearch) {
 
-          card.style.display = "flex";
+                card.classList.remove("hidden");
 
-        } else {
+            } else {
 
-          card.style.display = "none";
-        }
-      });
+                card.classList.add("hidden");
+            }
+        });
     }
 
     chips.forEach(chip => {
 
-      chip.addEventListener("click", () => {
+        chip.addEventListener("click", () => {
 
-        chips.forEach(c =>
-          c.classList.remove("active")
-        );
+            chips.forEach(c =>
+                c.classList.remove("active")
+            );
 
-        chip.classList.add("active");
+            chip.classList.add("active");
 
-        activeFilter =
-          chip.getAttribute("data-filter");
+            activeFilter =
+                chip.getAttribute("data-filter");
 
-        filterProducts();
-      });
+            filterProducts();
+        });
     });
 
     if (search) {
 
-      search.addEventListener("input", filterProducts);
+        search.addEventListener(
+            "input",
+            filterProducts
+        );
     }
-  }
-
-});
+}
