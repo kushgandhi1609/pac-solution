@@ -102,7 +102,7 @@ p { margin: 0 0 1em; color: var(--muted); }
   padding: 14px 0; gap: 18px;
 }
 .brand { display: flex; align-items: center; gap: 12px; }
-..brand-mark {
+.brand-mark {
   width: 42px; height: 42px; border-radius: 10px;
   background: linear-gradient(135deg, var(--navy) 0%, var(--navy-3) 100%);
   display: grid; place-items: center; color: var(--cyan-2);
